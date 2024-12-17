@@ -1,0 +1,41 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage[margin=1in]{geometry}  % Set all margins to 1 inch (adjust as needed)
+\title{Evaluating an integral using Feynman's technique, Beta and Gamma function, and Euler's reflection formula}
+%\author{PRABAL BAISHYA}
+%\date{}
+
+\begin{document}
+
+\maketitle
+
+\section*{}
+
+
+The integral $I$ required to evaluate is given as-\\[10pt]  
+$$I=\int_{0}^{\infty}\frac{lnx}{(1+x^2)^2}dx$$\\[10pt]
+Introducing a new integral parameterization -\\[10pt]
+$$I(a)=\int_{0}^{\infty}\frac{x^a}{(1+x^2)^2}dx$$\\[10pt]
+Substituting $x=\sqrt{t}$ gives-\\[10pt]
+$$I(a) =\frac{1}{2} \int_{0}^{\infty} \frac{t^{\frac{(a-1)}{2}}}{(1+t)^2} \, dt$$\\[10pt]
+Which can be written as-\\[10pt]
+$$I(a) =\frac{1}{2} \int_{0}^{\infty} \frac{t^{\frac{(a+1)}{2}-1}}{(1+t)^{\frac{(a+1)}{2}+\frac{(3-a)}{2}}} \, dt$$\\[10pt]
+The Beta function is defined as-\\[10pt]
+$$\beta\left(m,n\right)=\int_{0}^{\infty}\frac{x^{m-1}}{(1+x)^{m+n}}dx$$\\[10pt]
+Hence our integral $I(a)$ can be represented as\\[10pt]
+$$I(a)=\frac{1}{2}\beta\left(\frac{a+1}{2},\frac{3-a}{2}\right)=\frac{1}{2}\frac{\Gamma\left(\frac{a+1}{2}\right)\Gamma\left(\frac{3-a}{2}\right)}{\Gamma\left(\frac{a+1}{2}+\frac{3-a}{2}\right)}$$\\[10pt]
+$$I(a)=\frac{1}{2}{\Gamma\left(\frac{a+1}{2}\right)\Gamma\left(\frac{3-a}{2}\right)}$$\\[10pt]
+Where $\Gamma(z)$ is the Gamma function and using the property that  $\Gamma(z+1)=z\Gamma(z)$ and simplifying we have-\\[10pt]
+$$ I(a)= \frac{(1-a)}{4}\Gamma\left(\frac{a+1}{2}\right)\Gamma\left(\frac{1-a}{2}\right)$$
+$$ I(a)= \frac{(1-a)}{4}\Gamma\left(\frac{1+a}{2}\right)\Gamma\left({1-\frac{1+a}{2}}\right)$$\\[10pt]
+Using Euler's refelction formula, $\Gamma(z)\Gamma(1-z)=\frac{\pi}{sin(\pi{z})}$, we have -\\[10pt]
+$$I(a) = \frac{\pi (1-a)}{4 \sin\left(\pi \left(\frac{1+a}{2}\right)\right)}$$\\[10pt]
+$$I(a) = \frac{\pi (1-a)}{4 \cos\left(\frac{\pi{a}}{2}\right)}$$\\[10pt]
+The required integral $I$ is the derivative of $I(a)$ evaluated at $a=0$\\[10pt]
+$$I= I'(a)\Big|_{a=0}$$\\[10pt]
+$$I'(a)=\frac{\pi}{4\cos\left(\frac{\pi{a}}{2}\right)}\left[\frac{\pi}{2}\left(1-a\right){tan\left(\frac{\pi{a}}{2}\right)-1}\right]$$\\[10pt]
+$$I'(0)=-\frac{\pi}{4}$$
+Hence,
+$$\mathbf{I=\int_{0}^{\infty}\frac{lnx}{(1+x^2)^2}dx=-\frac{\mathbf{\pi}}{4}}$$\\[50pt]
+NOTE: The Euler's reflection formula is valid when $\small|z\small|<1$. $I(a)$ will then converge only for $-3<a<1$.
+\end{document}
