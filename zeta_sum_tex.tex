@@ -1,0 +1,44 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath}
+%\usepackage[margin=1in]{geometry}  % Set all margins to 1 inch (adjust as needed)
+\title{A sum involving the Riemann-Zeta function }
+%\author{PRABAL BAISHYA}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section*{}
+The required sum $S$ to be evaluated, is given as-\\[10pt]
+$$S=\sum_{n=2}^{\infty}\frac{\zeta(n)}{\pi^n}$$\\[10pt]
+Where $\zeta(z)$ is theRiemannn-Zeta function given by-\\[10pt]
+$$\zeta(z)=\sum_{n=1}^{\infty}\frac{1}{n^z}$$ which converges for $z>1$.\\[10pt]
+The Bose-Einstein integral relating the Gamma and Zeta function is given as follows -\\[10pt]
+$$\Gamma(s){\zeta(s)}=\int_{0}^{\infty}\frac{x^{s-1}}{e^x-1}dx$$\\[10pt]
+Using this defination of $\zeta(s)$ in our sum-\\[10pt]
+$$S=\sum_{n=2}^{\infty}\frac{\pi}{\Gamma(n)}\int_{0}^{\infty}\frac{{\frac{x}{\pi}}^{n-1}}{{e^x-1}}dx$$\\[10pt]
+$$S={\pi}{}\int_{0}^{\infty}\frac{1}{({e^x-1})}\sum_{n=2}^{\infty}\frac{{\frac{x}{\pi}}^{n-1}}{\Gamma(n)}$$\\[10pt]
+Using the series defination o $e^x$, the inner sum reduces to $e^{\frac{x}{\pi}}-1$, \\[10pt]
+$$S=\pi\int_{0}^{\infty}\frac{e^{\frac{x}{\pi}}-1}{e^x-1}dx$$\\[10pt]
+Multiplying and dividing by $e^{-x}$\\[10pt]
+$$S=\pi\int_{0}^{\infty}\frac{e^{-(1-\frac{1}{\pi})x}-e^{-x}}{1-e^{-x}}dx$$\\[10pt]
+Since $e^{-x} < 1 $ for the given limits of integration, we can expand it using the power series of $\frac{1}{1-x}$ as-\\[10pt]
+$$S=\pi\int_{0}^{\infty}\left({e^{-(1-\frac{1}{\pi})x}-e^{-x}}\right)\sum_{n=0}^{\infty}e^{-nx}$$\\[10pt]
+$$S=\pi\int_{0}^{\infty}\sum_{n=0}^{\infty}\left({e^{-(n+1-\frac{1}{\pi})x}-e^{-(n+1)x}}\right)dx$$\\[10pt]
+Since\\[10pt]
+$$\int_{0}^{\infty}e^{-ax}dx=\frac{1}{a}$$  for $a>0$\\[10pt]
+$$S=\pi\sum_{n=0}^{\infty}\left(\frac{1}{n+1-\frac{1}{\pi}}-\frac{1}{n+1}\right)$$\\[10pt]
+$$S=\pi\sum_{n=1}^{\infty}\left(\frac{1}{n-\frac{1}{\pi}}-\frac{1}{n}\right)$$\\[10pt]
+The series representation of the digamma function, $\psi(z+1)$ for all not negativw integer values of $z$, we have-\\[10pt]
+$$\psi(z+1)=-\gamma+\sum_{n=0}^{\infty}\left(\frac{1}{n}-\frac{1}{n+z}\right)$$\\[10pt]
+$$\sum_{n=0}^{\infty}\left(\frac{1}{n+z}-\frac{1}{n}\right)=-\gamma-\psi(z+1)$$\\[10pt]
+$\gamma$ is the Euler-Mascheroni constant.\\[10pt]
+Thus, our required sum is -\\[10pt]
+$$S=\pi\left(-\gamma-\psi(z+1)\right)\Big|_{z=-\frac{1}{\pi}}$$\\[10pt]
+$$S=-\gamma\pi-\pi\psi(1-\frac{1}{\pi})$$\\[10pt]
+$$\boxed{\mathbf{\sum_{n=2}^{\infty}\frac{\zeta(n)}{\pi^n}=\frac{\zeta(2)}{\pi^2}+\frac{\zeta(3)}{\pi^3}+\frac{\zeta(4)}{\pi^4}+\ldots=-\gamma\pi-\pi\psi(1-\frac{1}{\pi})}}$$\\[10pt]
+$$\sum_{n=2}^{\infty}\frac{\zeta(n)}{\pi^n}\approx 0.6958$$
+
+\end{document}
